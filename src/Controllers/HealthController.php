@@ -36,6 +36,9 @@ class HealthController extends Controller
     {
         $health = $this->healthService->getHealth(config('health'));
 
-        return new Health($health);
+        $response = new Health($health);
+        $response->withoutWrapping();
+
+        return $response;
     }
 }

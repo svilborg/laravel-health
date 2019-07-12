@@ -8,11 +8,11 @@ class HealthControllerTest extends TestCase
     {
         $response = $this->call('GET', 'api/health', [], [], [], []);
 
+        // $response->dump();
+
         $response->assertOk();
         $response->assertJson([
-            'data' => [
-                'status' => 'UP'
-            ]
+            'status' => 'UP'
         ]);
     }
 }

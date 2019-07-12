@@ -6,19 +6,22 @@ class Health
 
     /**
      * State
+     *
      * @var string
      */
     private $state = '';
 
     /**
      * Helath Checks
+     *
      * @var array
      */
     private $checks = [];
 
     /**
      * Health constructor.
-     * @param $state
+     *
+     * @param string $state
      * @param array $checks
      */
     public function __construct($state = HealthCheck::STATE_UP, $checks = [])
@@ -28,6 +31,16 @@ class Health
     }
 
     /**
+     *
+     * @return boolean
+     */
+    public function isOk()
+    {
+        return $this->state === HealthCheck::STATE_UP ? true : false;
+    }
+
+    /**
+     *
      * @return string
      */
     public function getState()
@@ -36,6 +49,7 @@ class Health
     }
 
     /**
+     *
      * @param string $state
      */
     public function setState($state)
@@ -44,6 +58,7 @@ class Health
     }
 
     /**
+     *
      * @return array
      */
     public function getChecks()
@@ -52,6 +67,7 @@ class Health
     }
 
     /**
+     *
      * @param mixed $check
      */
     public function setCheck($check)
