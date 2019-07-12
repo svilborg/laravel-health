@@ -6,4 +6,7 @@ return [
      * |--------------------------------------------------------------------------
      * |
      */
+
+    \Health\Checks\NullCheck::class,
+    \Health\Checks\SuccessfulCheck::class,
 ];
