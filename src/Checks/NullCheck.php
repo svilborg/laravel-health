@@ -6,6 +6,11 @@ use Health\Builder\HealthCheckResponseBuilder;
 class NullCheck implements HealthCheckInterface
 {
 
+    /**
+     *
+     * {@inheritDoc}
+     * @see \Health\Checks\HealthCheckInterface::call()
+     */
     public function call()
     {
         $builder = new HealthCheckResponseBuilder();

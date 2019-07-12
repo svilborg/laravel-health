@@ -1,12 +1,19 @@
 <?php
-
 namespace Health;
 
 class Health
 {
 
+    /**
+     * State
+     * @var string
+     */
     private $state = '';
 
+    /**
+     * Helath Checks
+     * @var array
+     */
     private $checks = [];
 
     /**

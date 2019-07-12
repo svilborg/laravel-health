@@ -6,9 +6,9 @@ use Health\Services\HealthService;
 use Symfony\Component\HttpFoundation\Request;
 use Health\Resources\Health;
 
-use Health\Checks\SuccessfulCheck;
-use Health\Checks\NullCheck;
-
+/**
+ * Health Check Controler
+ */
 class HealthController extends Controller
 {
 
@@ -34,10 +34,7 @@ class HealthController extends Controller
      */
     public function check(Request $request)
     {
-        $health = $this->healthService->getHealth([
-            SuccessfulCheck::class,
-            NullCheck::class
-        ]);
+        $health = $this->healthService->getHealth(config('health'));
 
         return new Health($health);
     }
