@@ -39,6 +39,6 @@ class HealthController extends Controller
         $response = new Health($health);
         $response->withoutWrapping();
 
-        return $response;
+        return $response->response()->setStatusCode(503);
     }
 }

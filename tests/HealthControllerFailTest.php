@@ -27,7 +27,7 @@ class HealthControllerFailTest extends TestCase
 
         // $response->dump();
 
-        $response->assertOk();
+        $response->assertStatus(503);
         $response->assertJson([
             'status' => 'DOWN'
         ]);
