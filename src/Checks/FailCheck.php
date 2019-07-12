@@ -3,7 +3,7 @@ namespace Health\Checks;
 
 use Health\Builder\HealthCheckResponseBuilder;
 
-class SuccessfulCheck implements HealthCheckInterface
+class FailCheck implements HealthCheckInterface
 {
 
     /**
@@ -15,9 +15,9 @@ class SuccessfulCheck implements HealthCheckInterface
     {
         $builder = new HealthCheckResponseBuilder();
 
-        return $builder->name("Test")
-            ->withData('foo', 'bar')
-            ->state(true)
+        return $builder->name("Test Fail")
+            ->withData('error', 'fali')
+            ->state(false)
             ->build();
     }
 }
