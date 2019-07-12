@@ -20,4 +20,8 @@ Register the health chech classes in config/health.php
         \Health\Checks\SuccessfulCheck::class,
     ];
 
+Add the api route
+
+    Route::get('/health', 'Health\HealthController@check');
+
 ### Examples
