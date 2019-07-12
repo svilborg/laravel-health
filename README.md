@@ -24,4 +24,34 @@ Add the api route
 
     Route::get('/health', 'Health\Controllers\HealthController@check');
 
-### Examples
+### Custom Helath Check
+
+
+    use Health\Builder\HealthCheckResponseBuilder;
+
+    class ServiceACheck implements HealthCheckInterface
+    {
+
+        /**
+         *
+         * {@inheritdoc}
+         * @see \Health\Checks\HealthCheckInterface::call()
+         */
+        public function call()
+        {
+            $builder = new HealthCheckResponseBuilder();
+
+            $health = $builder->name("Test Fail");
+
+            if($this->serviceA->connect()) {
+                $health->withData('error', 'Service A Failed')
+                        ->state(false);
+            }
+            else {
+                $health->state(true);
+            }
+
+            return $health->build();
+        }
+    }
+
