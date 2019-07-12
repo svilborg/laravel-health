@@ -8,36 +8,32 @@ use Health\Services\HealthService;
 class HealthControllerTest extends TestCase
 {
 
-    /**
-     * Define environment setup.
-     *
-     * @param Illuminate\Foundation\Application $app
-     *
-     * @return void
-     */
-    protected function getEnvironmentSetUp($app)
-    {
-        // Add the middleware
-        $kernel = $app->make(\Illuminate\Contracts\Http\Kernel::class);
+//     /**
+//      * Define environment setup.
+//      *
+//      * @param \Illuminate\Foundation\Application $app
+//      *
+//      * @return void
+//      */
+//     protected function getEnvironmentSetUp($app)
+//     {
+//         // Add the middleware
+//         $kernel = $app->make(\Illuminate\Contracts\Http\Kernel::class);
 
-        parent::getEnvironmentSetUp($app);
-    }
+//         parent::getEnvironmentSetUp($app);
+//     }
 
     public function testApiHealth()
     {
-        $crawler = $this->call('GET', 'api/health', [], [], [], []);
+        $response = $this->call('GET', 'api/health', [], [], [], []);
 
-        $this->assertNull($crawler->headers->get('Access-Control-Allow-Origin'));
-        $this->assertEquals(200, $crawler->getStatusCode());
+        $response->assertOk();
+        $response->assertJson([
+            'data' => [
+                'status' => 'UP'
+            ]
+        ]);
 
-        // $healthService = new HealthService();
-
-        // $health = $healthService->getHealth([
-        // SuccessfulCheck::class,
-        // NullCheck::class
-        // ]);
-
-        // $this->assertEquals("UP", $health->getState());
-        // $this->assertCount(2, $health->getChecks());
+        // $this->assertEquals(200, $response->getStatusCode());
     }
 }
