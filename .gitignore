@@ -1,0 +1,12 @@
+.env
+.env.testing
+artisan
+/bootstrap
+/storage/*.key
+/vendor
+/.idea
+tests/_output/*
+/.buildpath
+/.settings/
+/.project
+/_ide_helper.php
