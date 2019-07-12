@@ -12,8 +12,8 @@ class Health extends JsonResource
     public function toArray($request)
     {
         return [
-            'status' => $this->state,
-            'checks' => new HealthCheckCollection($this->checks)
+            'status' => $this->getState(),
+            'checks' => new HealthCheckCollection($this->getChecks())
         ];
     }
 }
