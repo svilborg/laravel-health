@@ -24,7 +24,7 @@ Add the api route
 
     Route::get('/health', 'Health\Controllers\HealthController@check');
 
-### Custom Helath Check
+### Custom Health Check
 
 
     use Health\Builder\HealthCheckResponseBuilder;
@@ -41,9 +41,9 @@ Add the api route
         {
             $builder = new HealthCheckResponseBuilder();
 
-            $health = $builder->name("Test Fail");
+            $health = $builder->name('Service A');
 
-            if($this->serviceA->connect()) {
+            if(!$this->serviceA->connect()) {
                 $health->withData('error', 'Service A Failed')
                         ->state(false);
             }
