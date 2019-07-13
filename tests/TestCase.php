@@ -12,8 +12,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         parent::resolveApplicationConfiguration($app);
 
         $app['config']['health'] = [
-            \Health\Checks\NullCheck::class,
-            \Tests\Checks\SuccessfulCheck::class
+            \Health\Checks\NullCheck::class
         ];
     }
 
