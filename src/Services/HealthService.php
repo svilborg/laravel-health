@@ -1,7 +1,6 @@
 <?php
 namespace Health\Services;
 
-use Health\Checks\HealthCheckInterface;
 use Health\Health;
 use Health\HealthCheck;
 
@@ -19,7 +18,7 @@ class HealthService
 
         foreach ($checks as $checkClass) {
 
-            /** @var HealthCheckInterface $check */
+            /** @var Health\Checks\HealthCheckInterface $check */
             $check = new $checkClass();
             $checkResponse = $check->call();
 

@@ -5,6 +5,7 @@ use Illuminate\Routing\Controller;
 use Health\Services\HealthService;
 use Symfony\Component\HttpFoundation\Request;
 use Health\Resources\Health;
+use Illuminate\Http\Response;
 
 /**
  * Health Check Controler
@@ -30,15 +31,17 @@ class HealthController extends Controller
     /**
      *
      * @param Request $request
-     * @return Health
+     * @return \Illuminate\Http\JsonResponse
      */
     public function check(Request $request)
     {
         $health = $this->healthService->getHealth(config('health'));
 
+        $statusCode = $health->isOk() ? Response::HTTP_OK : Response::HTTP_SERVICE_UNAVAILABLE;
+
         $response = new Health($health);
         $response->withoutWrapping();
 
-        return $response->response()->setStatusCode(503);
+        return $response->response()->setStatusCode($statusCode);
     }
 }

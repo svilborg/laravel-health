@@ -42,7 +42,6 @@ interface HealthCheckResponseBuilderInterface
 
     /**
      *
-     * @param boolean $up
      * @return HealthCheck
      */
     public function build();

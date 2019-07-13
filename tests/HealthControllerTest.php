@@ -6,7 +6,7 @@ class HealthControllerTest extends TestCase
 
     public function testApiHealth()
     {
-        $response = $this->call('GET', 'api/health', [], [], [], []);
+        $response = $this->call('GET', 'api/health');
 
         // $response->dump();
 
