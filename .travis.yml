@@ -1,10 +1,12 @@
 language: php
 
 php:
-  - 7.1.18
+  - 7.1
+  - 7.2
+  - 7.3
 
 before_script:
   - composer install --no-interaction --prefer-source
 
 script: 
-  - ./vendor/bin/phpunit
+  - ./vendor/bin/phpunit ./tests/
