@@ -11,7 +11,7 @@ Implementation of MicroProfile Health for Laravel
 
 ### Configuration
 
-Register the health chech classes in config/health.php
+Register the health check classes in config/health.php
 
 ```php
     return [
