@@ -13,7 +13,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
 
         $app['config']['health'] = [
             \Health\Checks\NullCheck::class,
-            \Health\Checks\SuccessfulCheck::class
+            \Tests\Checks\SuccessfulCheck::class
         ];
     }
 

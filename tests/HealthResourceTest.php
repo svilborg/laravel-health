@@ -3,7 +3,6 @@ namespace Tests;
 
 use PHPUnit\Framework\TestCase;
 use Health\Checks\NullCheck;
-use Health\Checks\SuccessfulCheck;
 use Health\Services\HealthService;
 use Health\Resources\Health;
 use Health\Resources\HealthCheckCollection;
@@ -16,7 +15,6 @@ class HealthResourceTest extends TestCase
         $healthService = new HealthService();
 
         $health = $healthService->getHealth([
-            SuccessfulCheck::class,
             NullCheck::class
         ]);
 

@@ -22,7 +22,6 @@ Register the health chech classes in config/health.php
          */
 
         \Health\Checks\NullCheck::class,
-        \Health\Checks\SuccessfulCheck::class,
     ];
 
 Add the api route

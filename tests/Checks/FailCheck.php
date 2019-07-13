@@ -1,7 +1,8 @@
 <?php
-namespace Health\Checks;
+namespace Tests\Checks;
 
 use Health\Builder\HealthCheckResponseBuilder;
+use Health\Checks\HealthCheckInterface;
 
 class FailCheck implements HealthCheckInterface
 {

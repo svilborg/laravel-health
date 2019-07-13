@@ -17,7 +17,7 @@ class HealthControllerFailTest extends TestCase
 
         $app['config']['health'] = [
             \Health\Checks\NullCheck::class,
-            \Health\Checks\FailCheck::class
+            \Tests\Checks\FailCheck::class
         ];
     }
 
