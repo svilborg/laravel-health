@@ -12,6 +12,11 @@ class HealthCheckResponseBuilder implements HealthCheckResponseBuilderInterface
 
     private $data = [];
 
+    /**
+     *
+     * {@inheritdoc}
+     * @see \Health\Builder\HealthCheckResponseBuilderInterface::name()
+     */
     public function name(string $name)
     {
         $this->name = $name;
@@ -19,6 +24,11 @@ class HealthCheckResponseBuilder implements HealthCheckResponseBuilderInterface
         return $this;
     }
 
+    /**
+     *
+     * {@inheritdoc}
+     * @see \Health\Builder\HealthCheckResponseBuilderInterface::up()
+     */
     public function up()
     {
         $this->state = HealthCheck::STATE_UP;
@@ -26,6 +36,11 @@ class HealthCheckResponseBuilder implements HealthCheckResponseBuilderInterface
         return $this;
     }
 
+    /**
+     *
+     * {@inheritdoc}
+     * @see \Health\Builder\HealthCheckResponseBuilderInterface::down()
+     */
     public function down()
     {
         $this->state = HealthCheck::STATE_DOWN;
@@ -33,6 +48,11 @@ class HealthCheckResponseBuilder implements HealthCheckResponseBuilderInterface
         return $this;
     }
 
+    /**
+     *
+     * {@inheritdoc}
+     * @see \Health\Builder\HealthCheckResponseBuilderInterface::state()
+     */
     public function state(bool $up)
     {
         $this->state = $up ? HealthCheck::STATE_UP : HealthCheck::STATE_DOWN;
@@ -40,6 +60,11 @@ class HealthCheckResponseBuilder implements HealthCheckResponseBuilderInterface
         return $this;
     }
 
+    /**
+     *
+     * {@inheritdoc}
+     * @see \Health\Builder\HealthCheckResponseBuilderInterface::withData()
+     */
     public function withData(string $key, $value)
     {
         $this->data[$key] = $value;
@@ -47,6 +72,11 @@ class HealthCheckResponseBuilder implements HealthCheckResponseBuilderInterface
         return $this;
     }
 
+    /**
+     *
+     * {@inheritdoc}
+     * @see \Health\Builder\HealthCheckResponseBuilderInterface::build()
+     */
     public function build()
     {
         return new HealthCheck($this->name, $this->state, $this->data);
