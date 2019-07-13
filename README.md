@@ -13,6 +13,7 @@ Implementation of MicroProfile Health for Laravel
 
 Register the health chech classes in config/health.php
 
+```php
     return [
         /*
          * |--------------------------------------------------------------------------
@@ -23,14 +24,17 @@ Register the health chech classes in config/health.php
 
         \Health\Checks\NullCheck::class,
     ];
+```
 
 Add the api route
 
+```php
     Route::get('/health', 'Health\Controllers\HealthController@check');
+```
 
 ### Custom Health Check
 
-
+```php
     use Health\Builder\HealthCheckResponseBuilder;
 
     class ServiceACheck implements HealthCheckInterface
@@ -58,4 +62,4 @@ Add the api route
             return $health->build();
         }
     }
-
+```
