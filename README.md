@@ -35,9 +35,10 @@ Add the api route
 ### Custom Health Check
 
 ```php
-    use Health\Builder\HealthCheckResponseBuilder;
+    use Health\Checks\BaseCheck;
+    use Health\Checks\HealthCheckInterface;
 
-    class ServiceACheck implements HealthCheckInterface
+    class ServiceACheck extends BaseCheck implements HealthCheckInterface
     {
 
         /**
@@ -47,16 +48,14 @@ Add the api route
          */
         public function call()
         {
-            $builder = new HealthCheckResponseBuilder();
-
-            $health = $builder->name('Service A');
+            $health = $this->getBuilder('Service A');
 
             if(!$this->serviceA->connect()) {
                 $health->withData('error', 'Service A Failed')
-                        ->state(false);
+                        ->down();
             }
             else {
-                $health->state(true);
+                $health->up();
             }
 
             return $health->build();
