@@ -13,7 +13,9 @@ class HealthServiceTest extends TestCase
         $healthService = new HealthService();
 
         $health = $healthService->getHealth([
-            NullCheck::class
+            [
+                'class' => NullCheck::class
+            ]
         ]);
 
         $this->assertEquals("UP", $health->getState());

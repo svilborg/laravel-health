@@ -35,7 +35,7 @@ class HealthController extends Controller
      */
     public function check(Request $request)
     {
-        $health = $this->healthService->getHealth(config('health'));
+        $health = $this->healthService->getHealth(config('health.checks', []));
 
         $statusCode = $health->isOk() ? Response::HTTP_OK : Response::HTTP_SERVICE_UNAVAILABLE;
 

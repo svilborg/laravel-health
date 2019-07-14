@@ -8,6 +8,7 @@ class HealthService
 {
 
     /**
+     *
      * @param array $checks
      * @return Health
      */
@@ -15,12 +16,18 @@ class HealthService
     {
         $health = new Health();
         $health->setState(HealthCheck::STATE_UP);
+        foreach ($checks as $check) {
 
-        foreach ($checks as $checkClass) {
+            $class = $check['class'] ?? null;
+            $params = $check['params'] ?? [];
 
-            /** @var Health\Checks\HealthCheckInterface $check */
-            $check = new $checkClass();
-            $checkResponse = $check->call();
+            if (! $class) {
+                throw new \Exception('Health Check configuration error. Missing check class.');
+            }
+
+            /** @var Health\Checks\HealthCheckInterface $healthCheck */
+            $healthCheck = new $class($params);
+            $checkResponse = $healthCheck->call();
 
             if ($checkResponse->getState() !== HealthCheck::STATE_UP) {
                 $health->setState(HealthCheck::STATE_DOWN);

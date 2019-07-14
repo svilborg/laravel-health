@@ -16,7 +16,12 @@ class HealthControllerFailTest extends TestCase
         parent::resolveApplicationConfiguration($app);
 
         $app['config']['health'] = [
-            \Health\Checks\DatabaseCheck::class
+            'checks' => [
+                [
+                    'class' => \Health\Checks\DatabaseCheck::class,
+                    'params' => []
+                ]
+            ]
         ];
     }
 

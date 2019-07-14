@@ -7,5 +7,10 @@ return [
      * |
      */
 
-    // \Health\Checks\NullCheck::class,
+    'checks' => [
+//         [
+//             'class' => \Health\Checks\NullCheck::class,
+//             'params' => []
+//         ]
+    ]
 ];

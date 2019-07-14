@@ -15,7 +15,9 @@ class HealthResourceTest extends TestCase
         $healthService = new HealthService();
 
         $health = $healthService->getHealth([
-            NullCheck::class
+            [
+                'class' => NullCheck::class
+            ]
         ]);
 
         $healthResource = new Health($health);
