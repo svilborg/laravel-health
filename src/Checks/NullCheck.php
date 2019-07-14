@@ -15,6 +15,6 @@ class NullCheck implements HealthCheckInterface
     {
         $builder = new HealthCheckResponseBuilder();
 
-        return $builder->name(self::class)->state(true)->build();
+        return $builder->name(self::class)->up()->build();
     }
 }

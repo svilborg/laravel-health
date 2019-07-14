@@ -7,6 +7,12 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
     use \Illuminate\Foundation\Validation\ValidatesRequests;
 
+    /**
+     * Define environment setup.
+     *
+     * @param \Illuminate\Foundation\Application $app
+     * @return void
+     */
     protected function resolveApplicationConfiguration($app)
     {
         parent::resolveApplicationConfiguration($app);
@@ -16,6 +22,11 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         ];
     }
 
+    /**
+     *
+     * @param \Illuminate\Foundation\Application $app
+     * @return string[]
+     */
     protected function getPackageProviders($app)
     {
         return [
