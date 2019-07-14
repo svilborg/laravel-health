@@ -18,6 +18,12 @@ class HealthControllerTest extends TestCase
             'checks' => [
                 [
                     'class' => \Health\Checks\NullCheck::class
+                ],
+                [
+                    'class' => \Health\Checks\DiskSpaceCheck::class,
+                    'params' => [
+                        'path' => '/tmp'
+                    ]
                 ]
             ]
         ];

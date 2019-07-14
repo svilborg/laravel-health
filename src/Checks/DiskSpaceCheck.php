@@ -1,7 +1,7 @@
 <?php
 namespace Health\Checks;
 
-class DiskSpaceHealthCheck extends BaseCheck implements HealthCheckInterface
+class DiskSpaceCheck extends BaseCheck implements HealthCheckInterface
 {
 
     /**
@@ -12,6 +12,13 @@ class DiskSpaceHealthCheck extends BaseCheck implements HealthCheckInterface
     const DEFAULT_THRESHOLD = 100000000;
 
     /**
+     * Default Path
+     *
+     * @var string
+     */
+    const DEFAULT_PATH = '/';
+
+    /**
      *
      * {@inheritdoc}
      * @see \Health\Checks\HealthCheckInterface::call()
@@ -20,15 +27,21 @@ class DiskSpaceHealthCheck extends BaseCheck implements HealthCheckInterface
     {
         $builder = $this->getBuilder(self::class);
 
-        $free = disk_free_space('/');
+        $path = $this->params['path'] ?? self::DEFAULT_PATH;
+        $threshold = $this->params['threshold'] ?? self::DEFAULT_THRESHOLD;
 
-        $builder->withData('free_bytes', $free)->withData('free_human', $this->formatBytes($free));
+        $free = disk_free_space($path);
 
-        if ($free >= self::DEFAULT_THRESHOLD) {
+        if ($free >= $threshold) {
             $builder->up();
         } else {
             $builder->down();
         }
+
+        $builder->withData('free_bytes', $free)
+            ->withData('free_human', $this->formatBytes($free))
+            ->withData('path', $path)
+            ->withData('threshold', $threshold);
 
         return $builder->build();
     }

@@ -22,7 +22,12 @@ Register the health check classes in config/health.php
          * |
          */
 
-        \Health\Checks\NullCheck::class,
+        'checks' => [
+             [
+                 'class' => \Health\Checks\NullCheck::class,
+                 'params' => []
+             ]
+        ]
     ];
 ```
 
