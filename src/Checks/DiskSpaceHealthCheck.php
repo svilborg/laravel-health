@@ -1,9 +1,7 @@
 <?php
 namespace Health\Checks;
 
-use Health\Builder\HealthCheckResponseBuilder;
-
-class DiskSpaceHealthCheck implements HealthCheckInterface
+class DiskSpaceHealthCheck extends BaseCheck implements HealthCheckInterface
 {
 
     /**
@@ -20,8 +18,7 @@ class DiskSpaceHealthCheck implements HealthCheckInterface
      */
     public function call()
     {
-        $builder = new HealthCheckResponseBuilder();
-        $builder->name(self::class);
+        $builder = $this->getBuilder(self::class);
 
         $free = disk_free_space('/');
 

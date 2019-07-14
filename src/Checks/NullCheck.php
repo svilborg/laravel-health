@@ -1,9 +1,7 @@
 <?php
 namespace Health\Checks;
 
-use Health\Builder\HealthCheckResponseBuilder;
-
-class NullCheck implements HealthCheckInterface
+class NullCheck extends BaseCheck implements HealthCheckInterface
 {
 
     /**
@@ -13,8 +11,8 @@ class NullCheck implements HealthCheckInterface
      */
     public function call()
     {
-        $builder = new HealthCheckResponseBuilder();
-
-        return $builder->name(self::class)->up()->build();
+        return $this->getBuilder(self::class)
+            ->up()
+            ->build();
     }
 }

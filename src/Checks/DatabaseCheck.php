@@ -1,10 +1,9 @@
 <?php
 namespace Health\Checks;
 
-use Health\Builder\HealthCheckResponseBuilder;
 use DB;
 
-class DatabaseCheck implements HealthCheckInterface
+class DatabaseCheck extends BaseCheck implements HealthCheckInterface
 {
 
     /**
@@ -14,8 +13,7 @@ class DatabaseCheck implements HealthCheckInterface
      */
     public function call()
     {
-        $builder = new HealthCheckResponseBuilder();
-        $builder->name(self::class)->state(true);
+        $builder = $this->getBuilder(self::class);
 
         try {
             DB::connection()->getPdo();
