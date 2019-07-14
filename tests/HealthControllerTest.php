@@ -24,6 +24,12 @@ class HealthControllerTest extends TestCase
                     'params' => [
                         'path' => '/tmp'
                     ]
+                ],
+                [
+                    'class' => \Health\Checks\EnvironmentCheck::class,
+                    'params' => [
+                        'APP_ENV' => 'testing'
+                    ]
                 ]
             ]
         ];
