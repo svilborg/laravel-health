@@ -35,19 +35,4 @@ class HttpTest extends CheckTestCase
 
         $this->assertCheck($check, 'DOWN');
     }
-
-    public function testCheckDownTimeout()
-    {
-        $params = [
-            'uri' => "https://google.com",
-            'options' => [
-                'verify' => true,
-                'timeout' => 0.1
-            ]
-        ];
-
-        $check = $this->runCheck(Http::class, $params);
-
-        $this->assertCheck($check, 'DOWN');
-    }
 }
