@@ -2,6 +2,7 @@
 
 
 [![Build Status](https://travis-ci.org/svilborg/laravel-health.svg?branch=master)](https://travis-ci.org/svilborg/laravel-health)
+[![Coverage](https://codecov.io/gh/svilborg/laravel-health/branch/master/graph/badge.svg)](https://codecov.io/gh/svilborg/laravel-health)
 [![Latest Stable Version](https://img.shields.io/packagist/v/svilborg/laravel-health.svg)](https://packagist.org/packages/svilborg/laravel-health)
 [![License](https://img.shields.io/packagist/l/svilborg/laravel-health.svg)](https://github.com/svilborg/laravel-health/blob/master/LICENSE)
 
@@ -26,6 +27,22 @@ Register the health check classes in config/health.php
              [
                  'class' => \Health\Checks\NullCheck::class,
                  'params' => []
+             ],
+             [
+                 'class' => \Health\Checks\DatabaseCheck::class,
+                 'params' => []
+             ],
+             [
+                 'class' => \Health\Checks\DiskSpaceCheck::class,
+                 'params' => [
+                    'path' => '/'
+                 ]
+             ],
+             [
+                'class' => \Health\Checks\EnvironmentCheck::class,
+                'params' => [
+                     'APP_ENV' => 'testing'
+                 ]
              ]
         ]
     ];
