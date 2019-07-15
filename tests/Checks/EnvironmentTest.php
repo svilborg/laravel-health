@@ -13,6 +13,7 @@ class EnvironmentTest extends CheckTestCase
         ];
 
         $this->assertCheck($this->runCheck(EnvironmentCheck::class, $params), 'UP');
+
         $params = [
             'APP_ENV' => 'testing'
         ];
