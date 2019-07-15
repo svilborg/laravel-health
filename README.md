@@ -29,17 +29,17 @@ Register the health check classes in config/health.php
                  'params' => []
              ],
              [
-                 'class' => \Health\Checks\DatabaseCheck::class,
+                 'class' => \Health\Checks\Database::class,
                  'params' => []
              ],
              [
-                 'class' => \Health\Checks\DiskSpaceCheck::class,
+                 'class' => \Health\Checks\DiskSpace::class,
                  'params' => [
                     'path' => '/'
                  ]
              ],
              [
-                'class' => \Health\Checks\EnvironmentCheck::class,
+                'class' => \Health\Checks\Environment::class,
                 'params' => [
                      'APP_ENV' => 'testing'
                  ]
