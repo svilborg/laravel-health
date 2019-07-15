@@ -7,6 +7,8 @@ use Health\Checks\HealthCheckInterface;
 class Socket extends BaseCheck implements HealthCheckInterface
 {
 
+    protected $resource = null;
+
     /**
      *
      * {@inheritdoc}
@@ -42,7 +44,31 @@ class Socket extends BaseCheck implements HealthCheckInterface
      */
     protected function create($domain, $type, $protocol)
     {
-        return @socket_create($domain, $type, $protocol);
+        $this->resource = @socket_create($domain, $type, $protocol);
+
+        return $this->resource;
+    }
+
+    /**
+     * Connect to address
+     *
+     * @param string $address
+     * @param int|null $timeout
+     * @return boolean
+     */
+    protected function connect($address, $timeout = null)
+    {
+        $port = 80;
+
+        return @socket_connect($this->resource, $address, $port);
+    }
+
+    /**
+     * Close Socket
+     */
+    protected function close()
+    {
+        socket_close($this->resource);
     }
 
     /**
