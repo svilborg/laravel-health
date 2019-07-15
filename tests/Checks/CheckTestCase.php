@@ -1,10 +1,9 @@
 <?php
 namespace Tests\Checks;
 
-use PHPUnit\Framework\TestCase;
 use Health\HealthCheck;
 
-class CheckTestCase extends TestCase
+class CheckTestCase extends \Orchestra\Testbench\TestCase
 {
 
     protected function assertCheck($health, string $state = 'UP')
