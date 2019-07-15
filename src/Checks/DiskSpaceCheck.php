@@ -25,7 +25,7 @@ class DiskSpaceCheck extends BaseCheck implements HealthCheckInterface
      */
     public function call()
     {
-        $builder = $this->getBuilder(self::class);
+        $builder = $this->getBuilder();
 
         $path = $this->params['path'] ?? self::DEFAULT_PATH;
         $threshold = $this->params['threshold'] ?? self::DEFAULT_THRESHOLD;

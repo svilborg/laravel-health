@@ -14,7 +14,7 @@ class DirectoryIsWritable extends BaseCheck implements HealthCheckInterface
      */
     public function call()
     {
-        $builder = $this->getBuilder(self::class);
+        $builder = $this->getBuilder();
 
         $paths = $this->params['paths'] ?? [];
 

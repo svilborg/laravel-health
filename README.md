@@ -84,3 +84,58 @@ Add the api route
         }
     }
 ```
+
+
+### Example Response Payloads
+
+```json
+
+{
+    "status": "UP",
+    "checks": [
+        {
+            "name": "health-checks-null-check",
+            "status": "UP",
+            "data": []
+        },
+        {
+            "name": "health-checks-disk-space-check",
+            "status": "UP",
+            "data": {
+                "free_bytes": 119100669952,
+                "free_human": "110.92 GB",
+                "path": "\\/tmp",
+                "threshold": 100000000
+            }
+        },
+        {
+            "name": "health-checks-environment-check",
+            "status": "UP",
+            "data": {
+                "variable": "APP_ENV",
+                "value": "testing",
+                "value_expected": "testing"
+            }
+        },
+        {
+            "name": "health-checks-filesystem-directory-is-readable",
+            "status": "UP",
+            "data": {
+                "paths": [
+                    "..\\/tests"
+                ]
+            }
+        },
+        {
+            "name": "health-checks-filesystem-file-is-readable",
+            "status": "UP",
+            "data": {
+                "files": [
+                    "TestCase\\\\.php"
+                ]
+            }
+        }
+    ]
+}
+
+```

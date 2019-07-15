@@ -13,7 +13,7 @@ class DatabaseCheck extends BaseCheck implements HealthCheckInterface
      */
     public function call()
     {
-        $builder = $this->getBuilder(self::class);
+        $builder = $this->getBuilder();
 
         try {
             DB::connection()->getPdo();

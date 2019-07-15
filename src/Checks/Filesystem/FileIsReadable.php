@@ -14,7 +14,7 @@ class FileIsReadable extends BaseCheck implements HealthCheckInterface
      */
     public function call()
     {
-        $builder = $this->getBuilder(self::class);
+        $builder = $this->getBuilder();
 
         $files = $this->params['files'] ?? [];
 

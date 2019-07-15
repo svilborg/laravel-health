@@ -11,7 +11,7 @@ class EnvironmentCheck extends BaseCheck implements HealthCheckInterface
      */
     public function call()
     {
-        $builder = $this->getBuilder(self::class);
+        $builder = $this->getBuilder();
 
         foreach ($this->params as $paramKey => $paramValue) {
 

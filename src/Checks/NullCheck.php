@@ -11,7 +11,7 @@ class NullCheck extends BaseCheck implements HealthCheckInterface
      */
     public function call()
     {
-        return $this->getBuilder(self::class)
+        return $this->getBuilder()
             ->up()
             ->build();
     }
