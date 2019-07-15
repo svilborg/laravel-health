@@ -1,7 +1,7 @@
 <?php
 namespace Health\Checks;
 
-class DiskSpaceCheck extends BaseCheck implements HealthCheckInterface
+class DiskSpace extends BaseCheck implements HealthCheckInterface
 {
 
     /**

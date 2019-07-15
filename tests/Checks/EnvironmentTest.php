@@ -1,7 +1,7 @@
 <?php
 namespace Tests\Checks;
 
-use Health\Checks\EnvironmentCheck;
+use Health\Checks\Environment;
 
 class EnvironmentTest extends CheckTestCase
 {
@@ -12,13 +12,13 @@ class EnvironmentTest extends CheckTestCase
             'APP_ENV'
         ];
 
-        $this->assertCheck($this->runCheck(EnvironmentCheck::class, $params), 'UP');
+        $this->assertCheck($this->runCheck(Environment::class, $params), 'UP');
 
         $params = [
             'APP_ENV' => 'testing'
         ];
 
-        $this->assertCheck($this->runCheck(EnvironmentCheck::class, $params), 'UP');
+        $this->assertCheck($this->runCheck(Environment::class, $params), 'UP');
     }
 
     public function testCheckDown()
@@ -27,12 +27,12 @@ class EnvironmentTest extends CheckTestCase
             'none' => 'testing'
         ];
 
-        $this->assertCheck($this->runCheck(EnvironmentCheck::class, $params), 'DOWN');
+        $this->assertCheck($this->runCheck(Environment::class, $params), 'DOWN');
 
         $params = [
             'none'
         ];
 
-        $this->assertCheck($this->runCheck(EnvironmentCheck::class, $params), 'DOWN');
+        $this->assertCheck($this->runCheck(Environment::class, $params), 'DOWN');
     }
 }

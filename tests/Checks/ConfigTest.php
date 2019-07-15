@@ -1,7 +1,7 @@
 <?php
 namespace Tests\Checks;
 
-use Health\Checks\ConfigCheck;
+use Health\Checks\Config;
 
 class ConfigTest extends CheckTestCase
 {
@@ -12,7 +12,7 @@ class ConfigTest extends CheckTestCase
             'database'
         ];
 
-        $this->assertCheck($this->runCheck(ConfigCheck::class, $params), 'UP');
+        $this->assertCheck($this->runCheck(Config::class, $params), 'UP');
     }
 
     public function testCheckDown()
@@ -21,12 +21,12 @@ class ConfigTest extends CheckTestCase
             'none' => 'testing'
         ];
 
-        $this->assertCheck($this->runCheck(ConfigCheck::class, $params), 'DOWN');
+        $this->assertCheck($this->runCheck(Config::class, $params), 'DOWN');
 
         $params = [
             'none'
         ];
 
-        $this->assertCheck($this->runCheck(ConfigCheck::class, $params), 'DOWN');
+        $this->assertCheck($this->runCheck(Config::class, $params), 'DOWN');
     }
 }

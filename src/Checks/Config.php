@@ -1,7 +1,7 @@
 <?php
 namespace Health\Checks;
 
-class ConfigCheck extends BaseCheck implements HealthCheckInterface
+class Config extends BaseCheck implements HealthCheckInterface
 {
 
     /**

@@ -1,7 +1,7 @@
 <?php
 namespace Tests\Checks;
 
-use Health\Checks\DiskSpaceCheck;
+use Health\Checks\DiskSpace;
 
 class DiskSpaceTest extends CheckTestCase
 {
@@ -13,6 +13,6 @@ class DiskSpaceTest extends CheckTestCase
             'threshold' => 100
         ];
 
-        $this->assertCheck($this->runCheck(DiskSpaceCheck::class, $params), 'UP');
+        $this->assertCheck($this->runCheck(DiskSpace::class, $params), 'UP');
     }
 }

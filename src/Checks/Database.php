@@ -3,7 +3,7 @@ namespace Health\Checks;
 
 use DB;
 
-class DatabaseCheck extends BaseCheck implements HealthCheckInterface
+class Database extends BaseCheck implements HealthCheckInterface
 {
 
     /**

@@ -1,7 +1,7 @@
 <?php
 namespace Health\Checks;
 
-class EnvironmentCheck extends BaseCheck implements HealthCheckInterface
+class Environment extends BaseCheck implements HealthCheckInterface
 {
 
     /**

@@ -99,7 +99,7 @@ Add the api route
             "data": []
         },
         {
-            "name": "health-checks-disk-space-check",
+            "name": "health-checks-disk-space",
             "status": "UP",
             "data": {
                 "free_bytes": 119100669952,
@@ -109,7 +109,7 @@ Add the api route
             }
         },
         {
-            "name": "health-checks-environment-check",
+            "name": "health-checks-environment",
             "status": "UP",
             "data": {
                 "variable": "APP_ENV",
