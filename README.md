@@ -86,7 +86,7 @@ Add the api route
 ```
 
 
-### Example Response Payloads
+### Example Response Payload
 
 ```json
 
@@ -104,7 +104,7 @@ Add the api route
             "data": {
                 "free_bytes": 119100669952,
                 "free_human": "110.92 GB",
-                "path": "\\/tmp",
+                "path": "/",
                 "threshold": 100000000
             }
         },
@@ -122,7 +122,7 @@ Add the api route
             "status": "UP",
             "data": {
                 "paths": [
-                    "..\\/tests"
+                    "../tests"
                 ]
             }
         },
@@ -131,7 +131,7 @@ Add the api route
             "status": "UP",
             "data": {
                 "files": [
-                    "TestCase\\\\.php"
+                    "TestCase.php"
                 ]
             }
         }
