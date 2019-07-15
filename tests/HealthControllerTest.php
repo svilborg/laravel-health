@@ -30,6 +30,22 @@ class HealthControllerTest extends TestCase
                     'params' => [
                         'APP_ENV' => 'testing'
                     ]
+                ],
+                [
+                    'class' => \Health\Checks\Filesystem\DirectoryIsReadable::class,
+                    'params' => [
+                        'paths' => [
+                            '../tests'
+                        ]
+                    ]
+                ],
+                [
+                    'class' => \Health\Checks\Filesystem\FileIsReadable::class,
+                    'params' => [
+                        'files' => [
+                            'TestCase\.php'
+                        ]
+                    ]
                 ]
             ]
         ];
@@ -39,6 +55,7 @@ class HealthControllerTest extends TestCase
     {
         $response = $this->call('GET', 'api/health');
 
+        // var_export($response->getContent());die;
         // $response->dump();
 
         $response->assertOk();

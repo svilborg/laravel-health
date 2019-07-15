@@ -10,4 +10,5 @@ tests/_output/*
 /.settings/
 /.project
 /_ide_helper.php
+tests/coverage
 tests/coverage/*
