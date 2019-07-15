@@ -16,6 +16,7 @@ class HealthService
     {
         $health = new Health();
         $health->setState(HealthCheck::STATE_UP);
+
         foreach ($checks as $check) {
 
             $class = $check['class'] ?? null;

@@ -36,7 +36,7 @@ class Http extends BaseCheck implements HealthCheckInterface
 
         try {
             $uri = $this->params['uri'];
-            $options = $this->params['options'];
+            $options = $this->params['options'] ?? [];
             $method = isset($this->params['method']) ? strtoupper($this->params['method']) : 'GET';
 
             /** @var \Psr\Http\Message\ResponseInterface $response */
@@ -44,7 +44,7 @@ class Http extends BaseCheck implements HealthCheckInterface
 
             $statusCode = $response->getStatusCode();
 
-            $up = ($statusCode == 200) ? true : false;
+            $up = ($statusCode >= 200 && $statusCode < 300) ? true : false;
 
             $builder->state($up)
                 ->withData('uri', $uri)
