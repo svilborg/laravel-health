@@ -43,7 +43,7 @@ class HealthControllerTest extends TestCase
                     'class' => \Health\Checks\Filesystem\FileIsReadable::class,
                     'params' => [
                         'files' => [
-                            'TestCase\.php'
+                            './tests/TestCase.php'
                         ]
                     ]
                 ]
