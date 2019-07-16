@@ -1,29 +1,23 @@
 <?php
-namespace Health\Checks\Network;
+namespace Health\Checks\Traits;
 
-use Health\Checks\BaseCheck;
-use Health\Checks\HealthCheckInterface;
-
-class Socket extends BaseCheck implements HealthCheckInterface
+trait SocketTrait
 {
 
-    protected $resource = null;
-
     /**
+     * Socket resource
      *
-     * {@inheritdoc}
-     * @see \Health\Checks\HealthCheckInterface::call()
+     * @var resource
      */
-    public function call()
-    {
-        return null;
-    }
+    protected $resource = null;
 
     /**
      *
      * @param int $domain
      * @param int $type
      * @param int $protocol
+     *
+     * @return resource
      */
     protected function create($domain, $type, $protocol)
     {
@@ -61,7 +55,7 @@ class Socket extends BaseCheck implements HealthCheckInterface
     }
 
     /**
-     * Close Socket
+     * Close SocketTrait
      */
     protected function close()
     {

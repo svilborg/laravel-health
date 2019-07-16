@@ -2,9 +2,12 @@
 namespace Health\Checks\Network;
 
 use Health\Checks\HealthCheckInterface;
+use Health\Checks\BaseCheck;
+use Health\Checks\Traits\SocketTrait;
 
-class Udp6 extends Socket implements HealthCheckInterface
+class Udp6 extends BaseCheck implements HealthCheckInterface
 {
+    use SocketTrait;
 
     /**
      *

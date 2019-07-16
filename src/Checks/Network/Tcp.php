@@ -2,9 +2,13 @@
 namespace Health\Checks\Network;
 
 use Health\Checks\HealthCheckInterface;
+use Health\Checks\BaseCheck;
+use Health\Checks\Traits\SocketTrait;
 
-class Tcp extends Socket implements HealthCheckInterface
+class Tcp extends BaseCheck implements HealthCheckInterface
 {
+
+    use SocketTrait;
 
     /**
      *
