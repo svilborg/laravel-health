@@ -8,7 +8,7 @@ class CheckTestCase extends \Orchestra\Testbench\TestCase
 
     protected function assertCheck($health, string $state = 'UP')
     {
-        // dd($health);
+        // dump($health);
         $this->assertInstanceOf(HealthCheck::class, $health);
         $this->assertNotEmpty($health->getName());
         $this->assertEquals($state, $health->getState());

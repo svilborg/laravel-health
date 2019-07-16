@@ -3,7 +3,7 @@ namespace Health\Checks;
 
 use Health\Builder\HealthCheckResponseBuilder;
 
-abstract class BaseCheck implements HealthCheckInterface
+abstract class BaseCheck
 {
 
     /**

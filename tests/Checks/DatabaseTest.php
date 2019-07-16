@@ -23,7 +23,7 @@ class DatabaseTest extends CheckTestCase
         ]);
     }
 
-    public function testCheckDown()
+    public function testCheckUp()
     {
         $this->assertCheck($this->runCheck(Database::class), 'UP');
     }

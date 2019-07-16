@@ -20,10 +20,10 @@ class Database extends BaseCheck implements HealthCheckInterface
         try {
             DB::connection()->getPdo();
             if (! DB::connection()->getDatabaseName()) {
-                $builder->state(false)->withData("error", "Could not find the database.");
+                $builder->down()->withData("error", "Could not find the database.");
             }
         } catch (\Exception $e) {
-            $builder->state(false)->withData("error", "Could not open connection to database server.");
+            $builder->down()->withData("error", "Could not open connection to database server.");
         }
 
         return $builder->build();
