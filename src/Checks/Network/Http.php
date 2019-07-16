@@ -1,29 +1,14 @@
 <?php
 namespace Health\Checks\Network;
 
-use GuzzleHttp\Client;
 use Health\Checks\BaseCheck;
 use Health\Checks\HealthCheckInterface;
+use Health\Checks\Traits\HttpClientTrait;
 
 class Http extends BaseCheck implements HealthCheckInterface
 {
 
-    /**
-     *
-     * @var Client
-     */
-    protected $client;
-
-    /**
-     *
-     * @param array $params
-     */
-    public function __construct(array $params = [])
-    {
-        $this->params = $params;
-
-        $this->client = new Client();
-    }
+    use HttpClientTrait;
 
     /**
      *
@@ -40,7 +25,7 @@ class Http extends BaseCheck implements HealthCheckInterface
             $method = isset($this->params['method']) ? strtoupper($this->params['method']) : 'GET';
 
             /** @var \Psr\Http\Message\ResponseInterface $response */
-            $response = $this->client->request($method, $uri, $options);
+            $response = $this->getHttpClient()->request($method, $uri, $options);
 
             $statusCode = $response->getStatusCode();
 

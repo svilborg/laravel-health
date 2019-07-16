@@ -16,7 +16,8 @@
     "guzzlehttp/guzzle": "^6.3",
     "phpunit/phpunit": "^7.0",
     "orchestra/testbench": "~3.0",
-    "phan/phan": "^2.2"
+    "phan/phan": "^2.2",
+    "mockery/mockery": "^1.2"
   },
   "suggest": {
     "guzzlehttp/guzzle": "^6.3"

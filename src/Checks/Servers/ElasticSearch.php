@@ -1,31 +1,16 @@
 <?php
 namespace Health\Checks\Servers;
 
-use GuzzleHttp\Client;
 use Health\Checks\BaseCheck;
 use Health\Checks\HealthCheckInterface;
+use Health\Checks\Traits\HttpClientTrait;
 
 class ElasticSearch extends BaseCheck implements HealthCheckInterface
 {
 
+    use HttpClientTrait;
+
     const DEFAULT_URL = "http://localhost:9200";
-
-    /**
-     *
-     * @var Client
-     */
-    protected $client;
-
-    /**
-     *
-     * @param array $params
-     */
-    public function __construct(array $params = [])
-    {
-        $this->params = $params;
-
-        $this->client = new Client();
-    }
 
     /**
      *
@@ -40,7 +25,7 @@ class ElasticSearch extends BaseCheck implements HealthCheckInterface
             $uri = $this->getUri();
 
             /** @var \Psr\Http\Message\ResponseInterface $response */
-            $response = $this->client->get($uri);
+            $response = $this->getHttpClient()->get($uri);
 
             $statusCode = $response->getStatusCode();
             $status = '';
