@@ -19,7 +19,7 @@ class DirectoryIsReadable extends BaseCheck implements HealthCheckInterface
         $paths = $this->params['paths'] ?? [];
 
         foreach ($paths as $path) {
-            if (is_readable($path) && is_dir($path)) {
+            if (! is_dir($path) || ! is_readable($path)) {
                 $builder->down()->withData('path', $path);
             }
         }

@@ -19,7 +19,7 @@ class DirectoryIsWritable extends BaseCheck implements HealthCheckInterface
         $paths = $this->params['paths'] ?? [];
 
         foreach ($paths as $path) {
-            if (is_writeable($path) && is_dir($path)) {
+            if (!is_dir($path) || !is_writeable($path)) {
                 $builder->down()->withData('path', $path);
             }
         }

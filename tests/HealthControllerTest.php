@@ -35,7 +35,7 @@ class HealthControllerTest extends TestCase
                     'class' => \Health\Checks\Filesystem\DirectoryIsReadable::class,
                     'params' => [
                         'paths' => [
-                            '../tests'
+                            './tests'
                         ]
                     ]
                 ],
