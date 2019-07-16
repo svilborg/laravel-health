@@ -58,20 +58,20 @@ class DiskSpace extends BaseCheck implements HealthCheckInterface
      */
     private function formatBytes($size, $precision = 2)
     {
-        if ($size > 0) {
-            $size = (int) $size;
-            $base = log($size) / log(1024);
-            $suffixes = [
-                ' bytes',
-                ' KB',
-                ' MB',
-                ' GB',
-                ' TB'
-            ];
 
-            return round(pow(1024, $base - floor($base)), $precision) . $suffixes[floor($base)];
-        } else {
-            return $size . ' bytes';
-        }
+        $size = (int) $size;
+        $base = $size > 0 ? log($size) / log(1024) : 0;
+
+        $suffixes = [
+            ' bytes',
+            ' KB',
+            ' MB',
+            ' TB',
+            ' GB',
+        ];
+
+        $value = $size > 0 ? round(pow(1024, $base - floor($base)), $precision) : 0;
+
+        return $value . $suffixes[floor($base)];
     }
 }
