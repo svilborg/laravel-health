@@ -16,11 +16,10 @@ class Tcp extends Socket implements HealthCheckInterface
         $builder = $this->getBuilder();
 
         $address = $this->params['address'] ?? '';
-        $timeout = $this->params['timeout'] ?? '';
 
         $this->create(AF_INET, SOCK_STREAM, SOL_TCP);
 
-        if (! $this->connect($address, $timeout)) {
+        if (! $this->connect($address)) {
             $builder->down()->withData('error', $this->getError());
         }
 

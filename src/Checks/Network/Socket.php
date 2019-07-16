@@ -16,24 +16,7 @@ class Socket extends BaseCheck implements HealthCheckInterface
      */
     public function call()
     {
-        $builder = $this->getBuilder();
-
-        $domain = $this->params['domain'] ?? '';
-        $type = $this->params['type'];
-        $protocol = isset($this->params['protocol']) ? $this->params['protocol'] : '';
-
-        $up = ($this->create($domain, $type, $protocol)) ? true : false;
-
-        if (! $up) {
-            $builder->withData('error', $this->getError());
-        }
-
-        $builder->state($up)
-            ->withData('domain', $domain)
-            ->withData('type', $type)
-            ->withData('protocol', $protocol);
-
-        return $builder->build();
+        return null;
     }
 
     /**
@@ -56,11 +39,25 @@ class Socket extends BaseCheck implements HealthCheckInterface
      * @param int|null $timeout
      * @return boolean
      */
-    protected function connect($address, $timeout = null)
+    protected function connect($address)
     {
-        $port = 80;
+        if (filter_var($address, FILTER_VALIDATE_IP) || preg_match("/:/", $address)) {
 
-        return @socket_connect($this->resource, $address, $port);
+            if (filter_var($address, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
+                $address = 'http://' . $address;
+            }
+
+            $url = parse_url($address);
+
+            $host = $url['host'] ?? null;
+            $port = $url['port'] ?? null;
+        } else {
+            // For UNIX sockets
+            $host = $address;
+            $port = null;
+        }
+
+        return @socket_connect($this->resource, $host, $port);
     }
 
     /**

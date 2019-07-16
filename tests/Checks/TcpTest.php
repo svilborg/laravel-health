@@ -23,4 +23,15 @@ class TcpTest extends CheckTestCase
 
         $this->assertCheck($check, 'DOWN');
     }
+
+    public function testCheckHostUp()
+    {
+        $params = [
+            'address' => "www.google.com:80"
+        ];
+
+        $check = $this->runCheck(Tcp::class, $params);
+
+        $this->assertCheck($check, 'UP');
+    }
 }
