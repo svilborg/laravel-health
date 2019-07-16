@@ -18,6 +18,12 @@ class ConfigTest extends CheckTestCase
     public function testCheckDown()
     {
         $params = [
+            'database' => 'wrong_value'
+        ];
+
+        $this->assertCheck($this->runCheck(Config::class, $params), 'DOWN');
+
+        $params = [
             'none' => 'testing'
         ];
 

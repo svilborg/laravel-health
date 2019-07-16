@@ -24,6 +24,12 @@ class EnvironmentTest extends CheckTestCase
     public function testCheckDown()
     {
         $params = [
+            'APP_ENV' => 'wrong_value'
+        ];
+
+        $this->assertCheck($this->runCheck(Environment::class, $params), 'DOWN');
+
+        $params = [
             'none' => 'testing'
         ];
 
