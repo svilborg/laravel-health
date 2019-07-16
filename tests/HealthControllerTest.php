@@ -20,7 +20,7 @@ class HealthControllerTest extends TestCase
                     'class' => \Health\Checks\NullCheck::class
                 ],
                 [
-                    'class' => \Health\Checks\DiskSpace::class,
+                    'class' => \Health\Checks\Filesystem\DiskSpace::class,
                     'params' => [
                         'path' => '/tmp'
                     ]

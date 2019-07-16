@@ -29,11 +29,11 @@ Register the health check classes in config/health.php
                  'params' => []
              ],
              [
-                 'class' => \Health\Checks\Database::class,
+                 'class' => \Health\Checks\Servers\Database::class,
                  'params' => []
              ],
              [
-                 'class' => \Health\Checks\DiskSpace::class,
+                 'class' => \Health\Checks\Filesystem\DiskSpace::class,
                  'params' => [
                     'path' => '/'
                  ]
@@ -99,7 +99,7 @@ Add the api route
             "data": []
         },
         {
-            "name": "health-checks-disk-space",
+            "name": "health-checks-filesystem-disk-space",
             "status": "UP",
             "data": {
                 "free_bytes": 119100669952,

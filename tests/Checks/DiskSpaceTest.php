@@ -1,7 +1,8 @@
 <?php
 namespace Tests\Checks;
 
-use Health\Checks\DiskSpace;
+
+use Health\Checks\Filesystem\DiskSpace;
 
 class DiskSpaceTest extends CheckTestCase
 {

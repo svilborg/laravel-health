@@ -1,5 +1,8 @@
 <?php
-namespace Health\Checks;
+namespace Health\Checks\Filesystem;
+
+use Health\Checks\BaseCheck;
+use Health\Checks\HealthCheckInterface;
 
 class DiskSpace extends BaseCheck implements HealthCheckInterface
 {

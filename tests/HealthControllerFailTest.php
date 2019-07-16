@@ -18,7 +18,7 @@ class HealthControllerFailTest extends TestCase
         $app['config']['health'] = [
             'checks' => [
                 [
-                    'class' => \Health\Checks\Database::class,
+                    'class' => \Health\Checks\Servers\Database::class,
                     'params' => []
                 ]
             ]

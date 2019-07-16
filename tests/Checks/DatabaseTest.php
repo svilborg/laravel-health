@@ -1,7 +1,8 @@
 <?php
 namespace Tests\Checks;
 
-use Health\Checks\Database;
+
+use Health\Checks\Servers\Database;
 
 class DatabaseTest extends CheckTestCase
 {

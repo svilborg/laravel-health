@@ -1,7 +1,9 @@
 <?php
-namespace Health\Checks;
+namespace Health\Checks\Servers;
 
 use DB;
+use Health\Checks\BaseCheck;
+use Health\Checks\HealthCheckInterface;
 
 class Database extends BaseCheck implements HealthCheckInterface
 {
