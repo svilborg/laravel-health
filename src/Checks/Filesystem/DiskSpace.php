@@ -30,8 +30,8 @@ class DiskSpace extends BaseCheck implements HealthCheckInterface
     {
         $builder = $this->getBuilder();
 
-        $path = $this->params['path'] ?? self::DEFAULT_PATH;
-        $threshold = $this->params['threshold'] ?? self::DEFAULT_THRESHOLD;
+        $path = $this->getParam('path', self::DEFAULT_PATH);
+        $threshold = $this->getParam('threshold', self::DEFAULT_THRESHOLD);
 
         $free = disk_free_space($path);
 
@@ -58,7 +58,6 @@ class DiskSpace extends BaseCheck implements HealthCheckInterface
      */
     private function formatBytes($size, $precision = 2)
     {
-
         $size = (int) $size;
         $base = $size > 0 ? log($size) / log(1024) : 0;
 
@@ -67,7 +66,7 @@ class DiskSpace extends BaseCheck implements HealthCheckInterface
             ' KB',
             ' MB',
             ' TB',
-            ' GB',
+            ' GB'
         ];
 
         $value = $size > 0 ? round(pow(1024, $base - floor($base)), $precision) : 0;

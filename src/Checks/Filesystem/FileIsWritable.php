@@ -16,7 +16,7 @@ class FileIsWritable extends BaseCheck implements HealthCheckInterface
     {
         $builder = $this->getBuilder();
 
-        $files = $this->params['files'] ?? [];
+        $files = $this->getParam('files', []);
 
         foreach ($files as $file) {
             if (! is_file($file) || ! is_writeable($file)) {

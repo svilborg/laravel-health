@@ -17,7 +17,14 @@ class HttpTest extends CheckTestCase
 
         $check = $this->runCheck(Http::class, $params);
 
-        // dump($check);
+        $this->assertCheck($check, 'UP');
+
+        $params = [
+            'uri' => "https://google.com",
+            'status' => 200
+        ];
+
+        $check = $this->runCheck(Http::class, $params);
 
         $this->assertCheck($check, 'UP');
     }
