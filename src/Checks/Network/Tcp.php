@@ -19,7 +19,7 @@ class Tcp extends BaseCheck implements HealthCheckInterface
     {
         $builder = $this->getBuilder();
 
-        $address = $this->params['address'] ?? '';
+        $address = $this->getParam('address', '');
 
         $this->create(AF_INET, SOCK_STREAM, SOL_TCP);
 

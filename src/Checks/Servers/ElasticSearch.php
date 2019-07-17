@@ -58,7 +58,7 @@ class ElasticSearch extends BaseCheck implements HealthCheckInterface
      */
     private function getUri()
     {
-        $uri = $this->params['uri'] ?? self::DEFAULT_URL;
+        $uri = $this->getParam('uri', self::DEFAULT_URL);
         $uri = rtrim($uri, "/") . "/_cluster/health";
 
         return $uri;

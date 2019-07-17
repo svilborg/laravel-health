@@ -26,7 +26,7 @@ class HealthControllerTest extends TestCase
                     ]
                 ],
                 [
-                    'class' => \Health\Checks\Environment::class,
+                    'class' => \Health\Checks\Env\Environment::class,
                     'params' => [
                         'APP_ENV' => 'testing'
                     ]

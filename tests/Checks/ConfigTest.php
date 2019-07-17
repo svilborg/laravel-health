@@ -1,7 +1,7 @@
 <?php
 namespace Tests\Checks;
 
-use Health\Checks\Config;
+use Health\Checks\Env\Config;
 
 class ConfigTest extends CheckTestCase
 {

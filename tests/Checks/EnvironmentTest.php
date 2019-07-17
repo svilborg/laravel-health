@@ -1,7 +1,7 @@
 <?php
 namespace Tests\Checks;
 
-use Health\Checks\Environment;
+use Health\Checks\Env\Environment;
 
 class EnvironmentTest extends CheckTestCase
 {

@@ -18,7 +18,7 @@ class Unix extends BaseCheck implements HealthCheckInterface
     {
         $builder = $this->getBuilder();
 
-        $address = $this->params['address'] ?? '';
+        $address = $this->getParam('address', '');
 
         $this->create(AF_UNIX, SOCK_STREAM, 0);
 

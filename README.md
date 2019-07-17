@@ -39,7 +39,7 @@ Register the health check classes in config/health.php
                  ]
              ],
              [
-                'class' => \Health\Checks\Environment::class,
+                'class' => \Health\Checks\Env\Environment::class,
                 'params' => [
                      'APP_ENV' => 'testing'
                  ]
@@ -109,7 +109,7 @@ Add the api route
             }
         },
         {
-            "name": "health-checks-environment",
+            "name": "health-checks-env-environment",
             "status": "UP",
             "data": {
                 "variable": "APP_ENV",

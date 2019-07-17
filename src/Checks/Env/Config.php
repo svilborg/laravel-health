@@ -1,5 +1,8 @@
 <?php
-namespace Health\Checks;
+namespace Health\Checks\Env;
+
+use Health\Checks\BaseCheck;
+use Health\Checks\HealthCheckInterface;
 
 class Config extends BaseCheck implements HealthCheckInterface
 {

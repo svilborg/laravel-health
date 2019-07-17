@@ -21,7 +21,7 @@ class DatabaseTables extends Database implements HealthCheckInterface
 
             $builder = $this->getBuilder();
 
-            $tables = $this->params['tables'] ?? [];
+            $tables = $this->getParam('tables', []);
             $missing = [];
             foreach ($tables as $table) {
                 if (! DB::getSchemaBuilder()->hasTable($table)) {
