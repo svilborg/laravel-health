@@ -1,0 +1,13 @@
+language: php
+
+php:
+  - 7.1
+  - 7.2
+  - 7.3
+
+before_script:
+  - composer install --no-interaction --prefer-source
+
+after_success:
+# Submit coverage report to https://codecov.io
+- bash <(curl -s https://codecov.io/bash)
