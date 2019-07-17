@@ -42,6 +42,18 @@ abstract class BaseCheck
     }
 
     /**
+     * Get Check Param
+     *
+     * @param string $name
+     * @param mixed|null $default
+     * @return string
+     */
+    protected function getParam(string $name, $default = null)
+    {
+        return $this->params[$name] ?? $default;
+    }
+
+    /**
      * Create a slug from check's class name
      *
      * @return string
