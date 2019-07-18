@@ -54,38 +54,6 @@ Add the api route
     Route::get('/health', 'Health\Controllers\HealthController@check');
 ```
 
-### Custom Health Check
-
-```php
-    use Health\Checks\BaseCheck;
-    use Health\Checks\HealthCheckInterface;
-
-    class ServiceACheck extends BaseCheck implements HealthCheckInterface
-    {
-
-        /**
-         *
-         * {@inheritdoc}
-         * @see \Health\Checks\HealthCheckInterface::call()
-         */
-        public function call()
-        {
-            $health = $this->getBuilder('Service A');
-
-            if(!$this->serviceA->connect()) {
-                $health->withData('error', 'Service A Failed')
-                        ->down();
-            }
-            else {
-                $health->up();
-            }
-
-            return $health->build();
-        }
-    }
-```
-
-
 ### Example Response Payload
 
 ```json
@@ -138,4 +106,35 @@ Add the api route
     ]
 }
 
+```
+
+### Custom Health Check
+
+```php
+    use Health\Checks\BaseCheck;
+    use Health\Checks\HealthCheckInterface;
+
+    class ServiceACheck extends BaseCheck implements HealthCheckInterface
+    {
+
+        /**
+         *
+         * {@inheritdoc}
+         * @see \Health\Checks\HealthCheckInterface::call()
+         */
+        public function call()
+        {
+            $health = $this->getBuilder('Service A');
+
+            if(!$this->serviceA->connect()) {
+                $health->withData('error', 'Service A Failed')
+                        ->down();
+            }
+            else {
+                $health->up();
+            }
+
+            return $health->build();
+        }
+    }
 ```
