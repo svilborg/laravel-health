@@ -10,7 +10,7 @@ trait FormatTrait
     /**
      * Format bytes to kb, mb, gb, tb
      *
-     * @param integer $size
+     * @param mixed $size
      * @param integer $precision
      * @return string
      */

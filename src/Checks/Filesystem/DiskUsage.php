@@ -37,7 +37,7 @@ class DiskUsage extends BaseCheck implements HealthCheckInterface
         $threshold = $this->getParam('threshold', self::DEFAULT_THRESHOLD);
 
         if ($threshold > 100 || $threshold < 0) {
-            return $builder->down()->withData('error', 'Invalid Threshold - ' . $threshold);
+            return $builder->down()->withData('error', 'Invalid Threshold - ' . $threshold)->build();
         }
 
         $free = disk_free_space($path);
