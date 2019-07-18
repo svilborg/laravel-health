@@ -3,6 +3,7 @@
 
 [![Build Status](https://travis-ci.org/svilborg/laravel-health.svg?branch=master)](https://travis-ci.org/svilborg/laravel-health)
 [![Coverage](https://codecov.io/gh/svilborg/laravel-health/branch/master/graph/badge.svg)](https://codecov.io/gh/svilborg/laravel-health)
+[![Quality Score](https://img.shields.io/scrutinizer/g/svilborg/laravel-health.svg)](https://scrutinizer-ci.com/g/svilborg/laravel-health)
 [![Latest Stable Version](https://img.shields.io/packagist/v/svilborg/laravel-health.svg)](https://packagist.org/packages/svilborg/laravel-health)
 [![License](https://img.shields.io/packagist/l/svilborg/laravel-health.svg)](https://github.com/svilborg/laravel-health/blob/master/LICENSE)
 
