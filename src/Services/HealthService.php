@@ -19,7 +19,6 @@ class HealthService
         $health->setState(HealthCheck::STATE_UP);
 
         foreach ($checks as $check) {
-
             $class = $check['class'] ?? null;
             $params = $check['params'] ?? [];
 

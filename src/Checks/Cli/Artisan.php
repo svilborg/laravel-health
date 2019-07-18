@@ -20,7 +20,6 @@ class Artisan extends BaseCheck implements HealthCheckInterface
         $commands = $this->getParam('commands', []);
 
         foreach ($commands as $command => $data) {
-
             $params = $data['params'] ?? [];
             $result = $data['result'] ?? null;
 

@@ -39,7 +39,6 @@ trait SocketTrait
     protected function connect($address)
     {
         if (filter_var($address, FILTER_VALIDATE_IP) || preg_match("/:/", $address)) {
-
             if (filter_var($address, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
                 $address = 'http://' . $address;
             }

@@ -21,7 +21,6 @@ class DatabaseTables extends Database implements HealthCheckInterface
         $health = parent::call();
 
         if ($health->getState() == HealthCheck::STATE_UP) {
-
             $builder = $this->getBuilder();
 
             $tables = $this->getParam('tables', []);

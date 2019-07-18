@@ -40,7 +40,7 @@ class Exec extends BaseCheck implements HealthCheckInterface
 
             if (! $process->isSuccessful()) {
                 $builder->down();
-            } else if ($result && ! preg_match("|{$result}|", $output)) {
+            } elseif ($result && ! preg_match("|{$result}|", $output)) {
                 $builder->down();
             }
         }
