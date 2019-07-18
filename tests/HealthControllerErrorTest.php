@@ -1,7 +1,7 @@
 <?php
 namespace Tests;
 
-class HealthControllerFailTest extends TestCase
+class HealthControllerErrorTest extends TestCase
 {
 
     /**
@@ -18,7 +18,7 @@ class HealthControllerFailTest extends TestCase
         $app['config']['health'] = [
             'checks' => [
                 [
-                    'class' => \Health\Checks\Servers\Database::class,
+                    'class' => '\Health\Checks\NoSuch',
                     'params' => []
                 ]
             ]

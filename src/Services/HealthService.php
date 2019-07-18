@@ -3,6 +3,7 @@ namespace Health\Services;
 
 use Health\Health;
 use Health\HealthCheck;
+use Health\Checks\ErrorCheck;
 
 class HealthService
 {
@@ -22,13 +23,19 @@ class HealthService
             $class = $check['class'] ?? null;
             $params = $check['params'] ?? [];
 
-            if (! $class) {
-                throw new \Exception('Health Check configuration error. Missing check class.');
-            }
+            if (! $class || ! class_exists($class)) {
 
-            /** @var Health\Checks\HealthCheckInterface $healthCheck */
-            $healthCheck = new $class($params);
-            $checkResponse = $healthCheck->call();
+                /** @var Health\Checks\HealthCheckInterface $healthCheck */
+                $healthCheck = new ErrorCheck([
+                    'message' => 'Health Check configuration error. Missing check class. - ' . $class
+                ]);
+                $checkResponse = $healthCheck->call();
+            } else {
+
+                /** @var Health\Checks\HealthCheckInterface $healthCheck */
+                $healthCheck = new $class($params);
+                $checkResponse = $healthCheck->call();
+            }
 
             if ($checkResponse->getState() !== HealthCheck::STATE_UP) {
                 $health->setState(HealthCheck::STATE_DOWN);
