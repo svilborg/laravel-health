@@ -14,7 +14,7 @@ class RedisTest extends CheckTestCase
      */
     protected function getEnvironmentSetUp($app)
     {
-        $app['config']->set('database.redis.client', 'phpredis');
+        $app['config']->set('database.redis.client', 'predis');
     }
 
     public function testCheckUp()
