@@ -49,7 +49,7 @@ abstract class BaseCheck
      *
      * @param string $name
      * @param mixed|null $default
-     * @return string
+     * @return mixed
      */
     protected function getParam(string $name, $default = null)
     {
