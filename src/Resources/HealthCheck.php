@@ -5,6 +5,10 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
  * Health Check Resource
+ *
+ * @method string getName()
+ * @method string getState()
+ * @method array getData()
  */
 class HealthCheck extends JsonResource
 {

@@ -20,14 +20,9 @@ class Exec extends BaseCheck implements HealthCheckInterface
         $commands = $this->getParam('commands', []);
 
         foreach ($commands as $command => $data) {
-            $params = $data['params'] ?? [];
             $result = $data['result'] ?? null;
             $dir = $data['dir'] ?? null;
             $timeout = $data['timeout'] ?? 5;
-
-            $params = ! is_array($params) ? [
-                $params
-            ] : $params;
 
             $process = new Process($command, $dir);
             $process->run();
