@@ -21,6 +21,7 @@ class Redis extends BaseCheck implements HealthCheckInterface
 
         try {
             RedisFacade::connection($name);
+            RedisFacade::ping();
         } catch (\Exception $e) {
             $builder->down()->withData("error", "Could not open connection to server - " . $e->getMessage());
         }
