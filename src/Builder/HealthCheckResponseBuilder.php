@@ -3,18 +3,36 @@ namespace Health\Builder;
 
 use Health\HealthCheck;
 
+/**
+ * Builder
+ */
 class HealthCheckResponseBuilder implements HealthCheckResponseBuilderInterface
 {
 
+    /**
+     * Check name
+     *
+     * @var string
+     */
     private $name = '';
 
+    /**
+     * Check state
+     *
+     * @var string
+     */
     private $state = '';
 
+    /**
+     * Extra data
+     *
+     * @var array
+     */
     private $data = [];
 
     /**
-     *
      * {@inheritdoc}
+     *
      * @see \Health\Builder\HealthCheckResponseBuilderInterface::name()
      */
     public function name(string $name)
@@ -25,8 +43,8 @@ class HealthCheckResponseBuilder implements HealthCheckResponseBuilderInterface
     }
 
     /**
-     *
      * {@inheritdoc}
+     *
      * @see \Health\Builder\HealthCheckResponseBuilderInterface::up()
      */
     public function up()
@@ -37,8 +55,8 @@ class HealthCheckResponseBuilder implements HealthCheckResponseBuilderInterface
     }
 
     /**
-     *
      * {@inheritdoc}
+     *
      * @see \Health\Builder\HealthCheckResponseBuilderInterface::down()
      */
     public function down()
@@ -49,8 +67,8 @@ class HealthCheckResponseBuilder implements HealthCheckResponseBuilderInterface
     }
 
     /**
-     *
      * {@inheritdoc}
+     *
      * @see \Health\Builder\HealthCheckResponseBuilderInterface::state()
      */
     public function state(bool $up)
@@ -61,8 +79,8 @@ class HealthCheckResponseBuilder implements HealthCheckResponseBuilderInterface
     }
 
     /**
-     *
      * {@inheritdoc}
+     *
      * @see \Health\Builder\HealthCheckResponseBuilderInterface::withData()
      */
     public function withData(string $key, $value)
@@ -73,8 +91,8 @@ class HealthCheckResponseBuilder implements HealthCheckResponseBuilderInterface
     }
 
     /**
-     *
      * {@inheritdoc}
+     *
      * @see \Health\Builder\HealthCheckResponseBuilderInterface::build()
      */
     public function build()

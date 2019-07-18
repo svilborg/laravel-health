@@ -5,6 +5,9 @@ use DB;
 use Health\Checks\BaseCheck;
 use Health\Checks\HealthCheckInterface;
 
+/**
+ * Database Check
+ */
 class Database extends BaseCheck implements HealthCheckInterface
 {
 

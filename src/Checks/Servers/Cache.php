@@ -5,6 +5,9 @@ use Health\Checks\BaseCheck;
 use Health\Checks\HealthCheckInterface;
 use Illuminate\Support\Facades\Cache as CacheFacade;
 
+/**
+ * Cache Check
+ */
 class Cache extends BaseCheck implements HealthCheckInterface
 {
 

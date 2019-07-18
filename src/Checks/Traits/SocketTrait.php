@@ -1,6 +1,9 @@
 <?php
 namespace Health\Checks\Traits;
 
+/**
+ * Socket operations
+ */
 trait SocketTrait
 {
 

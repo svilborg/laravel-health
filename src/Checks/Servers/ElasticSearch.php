@@ -5,6 +5,9 @@ use Health\Checks\BaseCheck;
 use Health\Checks\HealthCheckInterface;
 use Health\Checks\Traits\HttpClientTrait;
 
+/**
+ * ElasticSearch Check
+ */
 class ElasticSearch extends BaseCheck implements HealthCheckInterface
 {
 

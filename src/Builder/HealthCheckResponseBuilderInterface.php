@@ -3,20 +3,23 @@ namespace Health\Builder;
 
 use Health\HealthCheck;
 
+/**
+ * Builder Interface
+ */
 interface HealthCheckResponseBuilderInterface
 {
 
     /**
      *
-     * @param string $name
+     * @param  string $name
      * @return HealthCheckResponseBuilderInterface
      */
     public function name(string $name);
 
     /**
      *
-     * @param string $key
-     * @param mixed $value
+     * @param  string $key
+     * @param  mixed  $value
      * @return HealthCheckResponseBuilderInterface
      */
     public function withData(string $key, $value);
@@ -35,7 +38,7 @@ interface HealthCheckResponseBuilderInterface
 
     /**
      *
-     * @param boolean $up
+     * @param  boolean $up
      * @return HealthCheckResponseBuilderInterface
      */
     public function state(bool $up);

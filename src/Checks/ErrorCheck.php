@@ -1,6 +1,9 @@
 <?php
 namespace Health\Checks;
 
+/**
+ * Error Check
+ */
 class ErrorCheck extends BaseCheck implements HealthCheckInterface
 {
 

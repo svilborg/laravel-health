@@ -3,6 +3,9 @@ namespace Health\Checks;
 
 use Health\Builder\HealthCheckResponseBuilder;
 
+/**
+ * Base Abstract Check
+ */
 abstract class BaseCheck
 {
 

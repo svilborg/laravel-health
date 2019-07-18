@@ -3,6 +3,9 @@ namespace Health\Checks\Traits;
 
 use GuzzleHttp\Client;
 
+/**
+ * Http Client Instance
+ */
 trait HttpClientTrait
 {
 
