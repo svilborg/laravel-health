@@ -24,12 +24,6 @@ class HealthServiceProvider extends ServiceProvider
     {
         $source = realpath(__DIR__ . '/../../config/health.php');
 
-        if ($this->app->environment('testing')) {
-            if (is_file(__DIR__ . '/../../tests/health.php')) {
-                $source = realpath(__DIR__ . '/../../tests/health.php');
-            }
-        }
-
         $this->publishes([
             $source => config_path('health.php')
         ]);

@@ -29,15 +29,11 @@ class Exec extends BaseCheck implements HealthCheckInterface
                 $params
             ] : $params;
 
-            $process = new Process($command);
+            $process = new Process($command, $dir);
             $process->run();
 
             if ($timeout) {
                 $process->setTimeout($timeout);
-            }
-
-            if ($dir) {
-                $process->setWorkingDirectory($dir);
             }
 
             $output = $process->getOutput();

@@ -25,5 +25,25 @@ class CliExecTest extends CheckTestCase
                 ]
             ]
         ]), 'UP');
+
+        $this->assertCheck($this->runCheck(Exec::class, [
+            'commands' => [
+                'ls' => [
+                    'params' => [
+                        '-alh'
+                    ],
+                    'result' => 'src'
+                ]
+            ]
+        ]), 'UP');
+
+        $this->assertCheck($this->runCheck(Exec::class, [
+            'commands' => [
+                'ls' => [
+                    'params' => '-alh',
+                    'result' => 'nosuch'
+                ]
+            ]
+        ]), 'DOWN');
     }
 }
