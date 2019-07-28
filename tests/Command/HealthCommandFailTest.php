@@ -4,7 +4,7 @@ namespace Tests\Unit;
 use Illuminate\Support\Facades\Artisan;
 use Health\ServiceProviders\HealthServiceProvider;
 
-class HealthCommandTest extends \Orchestra\Testbench\TestCase
+class HealthCommandFailTest extends \Orchestra\Testbench\TestCase
 {
 
     /**
@@ -36,31 +36,9 @@ class HealthCommandTest extends \Orchestra\Testbench\TestCase
                     'class' => \Health\Checks\NullCheck::class
                 ],
                 [
-                    'class' => \Health\Checks\Filesystem\DiskSpace::class,
-                    'params' => [
-                        'path' => '/tmp'
-                    ]
-                ],
-                [
                     'class' => \Health\Checks\Env\Environment::class,
                     'params' => [
-                        'APP_ENV' => 'testing'
-                    ]
-                ],
-                [
-                    'class' => \Health\Checks\Filesystem\DirectoryIsReadable::class,
-                    'params' => [
-                        'paths' => [
-                            './tests'
-                        ]
-                    ]
-                ],
-                [
-                    'class' => \Health\Checks\Filesystem\FileIsReadable::class,
-                    'params' => [
-                        'files' => [
-                            './tests/TestCase.php'
-                        ]
+                        'APP_ENV' => 'nosuch'
                     ]
                 ]
             ]
@@ -76,9 +54,10 @@ class HealthCommandTest extends \Orchestra\Testbench\TestCase
         $resultAsText = Artisan::output();
         // echo $resultAsText;
 
-        $this->assertEquals(0, $code);
-        $this->assertContains('UP Health', $resultAsText);
+        $this->assertEquals(1, $code);
+
+        $this->assertContains('DOWN Health', $resultAsText);
         $this->assertContains('✔ UP health-checks-null-check', $resultAsText);
-        $this->assertContains('✔ UP health-checks-env-environment', $resultAsText);
+        $this->assertContains('✖ DOWN health-checks-env-environment', $resultAsText);
     }
 }
