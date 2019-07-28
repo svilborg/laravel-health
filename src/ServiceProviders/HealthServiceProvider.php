@@ -30,4 +30,19 @@ class HealthServiceProvider extends ServiceProvider
 
         $this->mergeConfigFrom($source, 'health');
     }
+
+
+    /**
+     * Register the service provider.
+     *
+     * @return void
+     */
+    public function register()
+    {
+
+        // Register health command.
+        $this->commands([
+            'Health\Commands\HealthCommand'
+        ]);
+    }
 }

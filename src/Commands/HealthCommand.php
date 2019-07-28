@@ -3,10 +3,7 @@ namespace Health\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Config\Repository as Config;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Helper\TableSeparator;
 use Health\Services\HealthService;
-use Health\Health;
 use Health\HealthCheck;
 
 /**
@@ -65,15 +62,16 @@ class HealthCommand extends Command
     {
         $health = $this->healthService->getHealth($this->config->get('health.checks'));
 
+        $this->line('');
         $this->output($health->getState(), 'Health State');
+        $this->line('==============================');
         $this->line('');
 
-        $statusCode = $health->isOk();
         foreach ($health->getChecks() as $check) {
-
             $this->output($check->getState(), $check->getName(), $check->getData());
-            // $this->output($check->getState(), json_encode($check->getData()));
         }
+
+        return $health->isOk() ? 0 : 1;
     }
 
     /**
@@ -115,9 +113,9 @@ class HealthCommand extends Command
         $data = $data ? json_encode($data) : '';
 
         if ($status == HealthCheck::STATE_UP) {
-            $result = '<info>✔ ' . $name . '</info> ' . $data;
+            $result = '<info>✔ ' . $status . ' ' . $name . '</info> ' . $data;
         } else {
-            $result = '<error>✖ ' . $name . '</error> ' . $data;
+            $result = '<error>✖ ' . $status . ' ' . $name . '</error> ' . $data;
         }
 
         return $result;
