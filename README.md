@@ -139,3 +139,19 @@ Add the api route
         }
     }
 ```
+
+
+### Health Check Cli Command
+
+    $ php artisan health
+
+        ✔ UP Health State
+        ==============================
+
+        ✔ UP health-checks-null-check
+        ✔ UP health-checks-filesystem-disk-space {"free_bytes":119302803456,"free_human":"111.11 TB","path":"\/tmp","threshold":100000000}
+        ✔ UP health-checks-env-environment {"variable":"APP_ENV","value":"testing","value_expected":"testing"}
+        ✔ UP health-checks-filesystem-directory-is-readable {"paths":[".\/tests"]}
+        ✔ UP health-checks-filesystem-file-is-readable {"files":[".\/tests\/TestCase.php"]}
+
+
