@@ -9,6 +9,10 @@ php:
   - 7.2
   - 7.3
 
+env:
+  global:
+    - SERVER_REDIS_ON=true
+
 services:
   - memcached
   - redis-server

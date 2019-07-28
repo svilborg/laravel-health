@@ -3,7 +3,7 @@ namespace Tests\Checks;
 
 use Health\Checks\Servers\Redis;
 
-class RedisTest extends CheckTestCase
+class RedisServerTest extends CheckTestCase
 {
 
     /**
@@ -15,11 +15,14 @@ class RedisTest extends CheckTestCase
     protected function getEnvironmentSetUp($app)
     {
         $app['config']->set('database.redis.client', 'predis');
-        $app['config']->set('database.redis.default.host', '8.8.8.8');
     }
 
     public function testCheckUp()
     {
-        $this->assertCheck($this->runCheck(Redis::class), 'DOWN');
+        if (getenv('SERVER_REDIS_ON') !== 'true') {
+            $this->markTestSkipped('Redis Server is not enabled');
+        }
+
+        $this->assertCheck($this->runCheck(Redis::class), 'UP');
     }
 }
