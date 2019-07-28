@@ -9,6 +9,10 @@ php:
   - 7.2
   - 7.3
 
+services:
+  - memcached
+  - redis-server
+
 before_script:
   - travis_retry composer install --no-interaction --ignore-platform-reqs
 
