@@ -40,9 +40,12 @@ class HealthCommand extends Command
     private $healthService;
 
     /**
+     *
      * Create a new command instance.
      *
      * @param \Illuminate\Contracts\Config\Repository $config
+     * @param HealthService $healthService
+     *
      * @return void
      */
     public function __construct(Config $config, HealthService $healthService)
