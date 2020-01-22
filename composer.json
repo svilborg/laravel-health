@@ -14,8 +14,8 @@
   },
   "require-dev": {
     "guzzlehttp/guzzle": "^6.3",
-    "symfony/yaml" : "^5.0.2",
-    "phpunit/phpunit": "^7.0",
+    "symfony/yaml" : "~3.4|~4.0",
+    "phpunit/phpunit": "^8.5",
     "orchestra/testbench": "~3.0",
     "phan/phan": "^2.2",
     "mockery/mockery": "^1.2",
