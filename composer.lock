@@ -3225,16 +3225,16 @@
         },
         {
             "name": "orchestra/testbench",
-            "version": "v3.8.5",
+            "version": "v3.8.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/testbench.git",
-                "reference": "c53429b04669b76bf764f4f8f9ba53bbe2d2a292"
+                "reference": "476ef1adabbddbf5ba72705590ee67737a86decc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench/zipball/c53429b04669b76bf764f4f8f9ba53bbe2d2a292",
-                "reference": "c53429b04669b76bf764f4f8f9ba53bbe2d2a292",
+                "url": "https://api.github.com/repos/orchestral/testbench/zipball/476ef1adabbddbf5ba72705590ee67737a86decc",
+                "reference": "476ef1adabbddbf5ba72705590ee67737a86decc",
                 "shasum": ""
             },
             "require": {
@@ -3271,7 +3271,7 @@
                 "orchestral",
                 "testing"
             ],
-            "time": "2019-09-11T07:44:11+00:00"
+            "time": "2020-04-27T09:51:10+00:00"
         },
         {
             "name": "orchestra/testbench-core",
