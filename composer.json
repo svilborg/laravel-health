@@ -13,7 +13,7 @@
     "laravel/framework": "5.*"
   },
   "require-dev": {
-    "guzzlehttp/guzzle": "^6.3",
+    "guzzlehttp/guzzle": "^7.3",
     "symfony/yaml" : "^5.0.3",
     "phpunit/phpunit": "^8.5",
     "orchestra/testbench": "~3.0",
@@ -24,7 +24,7 @@
     "solarium/solarium": "^5.0"
   },
   "suggest": {
-    "guzzlehttp/guzzle": "^6.3",
+    "guzzlehttp/guzzle": "^7.3",
     "symfony/yaml" : "^5.0.2"
   },
   "autoload": {
